@@ -1,0 +1,27 @@
+
+type Book {
+    "Unique primary key."
+    id: ID!
+
+    "Non-unique name."
+    title: String!
+
+    "Non-unique name."
+    sub_title: String!
+
+    "Non-unique name."
+    author: String
+
+    "When the account was created."
+    created_at: DateTime!
+
+    "When the account was last updated."
+    updated_at: DateTime!
+}
+
+
+type Query {
+  book(id: ID! @eq): Book @find
+  book_by_author(author: String! @eq): Book @find
+  books: [Book!]! @all
+}
